@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kspAndroid)
+    alias(libs.plugins.hiltAndroid)
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
@@ -37,33 +41,74 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        compose = true
+        dataBinding = true
+        viewBinding = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+    // Allow references to generated code
+    kapt {
+        correctErrorTypes = true
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+    hilt {
+        enableAggregatingTask = true
     }
 }
 
 dependencies {
 
+    // Android Architecture
+    implementation(
+        fileTree("libs") {
+            include("*.jar")
+        },
+    )
+    implementation(libs.androidx.appcompat)
+
+    // Android Kotlin
+    implementation(libs.kotlin.reflect)
+    implementation(libs.kotlin.stdlib)
+
+    // Co-Routines For Background Task
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.work.runtime.ktx)
+
+    // AndroidX UI
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.lifecycle.extensions)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.multidex)
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.swiperefreshlayout)
+
+    // Data Binding Library for Androidx
+    implementation(libs.databinding.compiler)
+    implementation(libs.androidx.frament.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.feature.fragment)
+    implementation(libs.androidx.palette.ktx)
+    implementation(libs.androidx.drawerlayout)
+
+    // Junit for Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Use to maintain resolution for different screen
+    implementation(libs.sdp)
+    implementation(libs.ssp)
+
+    // Dagger Hilt Dependency For Dependency Injection
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.work)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.fragment)
 }
