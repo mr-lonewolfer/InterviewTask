@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">InterviewTask</string>
+
+    <!--Permission String-->
+    <string name="media_permission_denied">Read media storage permission denied!</string>
+    <string name="storage_permission">Storage Permission</string>
+    <string name="storage_permission_desc">Storage permission is needed in order to show images and videos</string>
+    <string name="ok_btn">OK</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="external_storage_permission_denied">Read external storage permission denied!</string>
+    <string name="app_permission">Click on this button and Allow permission to access your status</string>
+    <string name="allow_storage_access">Allow storage access</string>
 </resources>

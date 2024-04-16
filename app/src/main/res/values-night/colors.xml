@@ -2,15 +2,11 @@
 <resources>
     <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryVariant">#FF9800</color>
-    <color name="colorOnPrimary">#000000</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
 
-    <color name="colorSecondary">#000000</color>
+    <color name="colorSecondary">#FFFFFF</color>
     <color name="colorSecondaryVariant">#808080</color>
     <color name="colorOnSecondary">#FFFFFF</color>
-
-    <color name="switch_checked">@color/colorPrimary</color> <!-- Adjust color as desired -->
-    <color name="switch_unchecked">@color/colorSecondary</color> <!-- Adjust color as desired -->
-
 
     <color name="unselected_item">#808080</color>
     <color name="selected_item">#FFFFFFFF</color>
