@@ -1,4 +1,4 @@
-package com.nimesh.interviewtask.data.model
+package com.nimesh.interviewtask.data.model.remote
 
 
 import kotlinx.parcelize.Parcelize

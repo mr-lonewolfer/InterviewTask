@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.nimesh.interviewtask.data.model.MediaCoveragesItem
+import com.nimesh.interviewtask.data.model.remote.MediaCoveragesItem
 import com.nimesh.interviewtask.data.network.MediaCoverageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow

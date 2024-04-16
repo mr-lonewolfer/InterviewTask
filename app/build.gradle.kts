@@ -110,6 +110,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.adapter.rxjava2)
     implementation(libs.logging.interceptor)
+    implementation(libs.retrofit2.kotlin.coroutines.adapter)
 
     //Glide for Display images
     implementation(libs.glide)
@@ -118,12 +119,7 @@ dependencies {
         exclude(group = "glide-parent")
     }
 
-    // Room Database
-    implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
-    implementation(libs.room.paging)
-    implementation(libs.room.rxjava2)
+
 
     // Dagger Hilt Dependency For Dependency Injection
     implementation(libs.hilt.android)

@@ -1,12 +1,9 @@
 package com.nimesh.interviewtask.data.network
 
 import com.nimesh.interviewtask.Utils.GlobalVariables
-import com.nimesh.interviewtask.data.model.MediaCoverages
-import com.nimesh.interviewtask.data.model.MediaCoveragesItem
-import retrofit2.Response
+import com.nimesh.interviewtask.data.model.remote.MediaCoveragesItem
 import retrofit2.http.GET
 import retrofit2.http.Query
-import java.time.ZoneOffset
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
