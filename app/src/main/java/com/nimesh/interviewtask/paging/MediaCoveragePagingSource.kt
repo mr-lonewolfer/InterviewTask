@@ -25,11 +25,6 @@ class MediaCoveragePagingSource(
         return try {
             val nextPageNumber = params.key ?: 0
             val response = apiService.getMediaCoveragesAsync(params.loadSize, nextPageNumber)
-            Log.e("neem", "load: nextPageNumber : $nextPageNumber")
-            response.forEach { mResponse ->
-                Log.e("neem", "load: title : ${mResponse.title}")
-            }
-
             LoadResult.Page(
                 data = response,
                 prevKey = if (nextPageNumber == 0) null else nextPageNumber - 1,

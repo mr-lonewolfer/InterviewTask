@@ -45,9 +45,8 @@ class MediaCoverageAdapter @Inject constructor(private val context: Context) :
         fun bind(mediaCoverage: MediaCoveragesItem) {
             binding.apply {
                 val imageUrl = mediaCoverage.coverageURL
-                GlobalScope.launch(Dispatchers.IO) {
                     binding.ivMedia.loadImageFromUrl(context, imageUrl)
-                }
+
             }
         }
     }

@@ -18,7 +18,8 @@ import java.net.URL
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: offer utility functions for loading images asynchronously from URLs in Android applications,
+ * with features like caching, asynchronous loading, and error handling
  */
 
 // LruCache for memory caching
@@ -51,7 +52,9 @@ fun ImageView.loadImageFromUrl(context: Context, imageUrl: String) {
                 val bitmap = BitmapFactory.decodeFile(cachedFile.absolutePath)
                 setImageBitmap(bitmap)
                 // Cache the loaded image in memory
-                memoryCache.put(imageUrl, bitmap)
+                if (bitmap != null) {
+                    memoryCache.put(imageUrl, bitmap)
+                }
                 return@isValidImagePath
             }
 
@@ -68,19 +71,24 @@ fun ImageView.loadImageFromUrl(context: Context, imageUrl: String) {
                         val bitmap = BitmapFactory.decodeStream(inputStream)
                         inputStream.close()
 
-                        // Save to cache
-                        saveToCache(context, bitmap, imageUrl.hashCode().toString())
+                        if (bitmap != null) {
+                            // Save to cache
+                            saveToCache(context, bitmap, imageUrl.hashCode().toString())
 
-                        // Cache the loaded image in memory
-                        memoryCache.put(imageUrl, bitmap)
+                            // Cache the loaded image in memory
+                            memoryCache.put(imageUrl, bitmap)
 
-                        // Display the image
-                        GlobalScope.launch(Dispatchers.Main) {
-                            setImageBitmap(bitmap)
+                            // Display the image
+                            GlobalScope.launch(Dispatchers.Main) {
+                                setImageBitmap(bitmap)
+                            }
+                        } else {
+                            // Bitmap is null, handle the error
+                            Log.e("ImageLoading", "Bitmap is null for URL: $imageUrl")
                         }
                     }
                 } catch (e: IOException) {
-                    Log.e("ImageLoading", "Error loading image from URL: $imageUrl")
+                    Log.e("ImageLoading", "Error loading image from URL: $imageUrl \n ${e.message}")
                 }
             }
         } else {
@@ -96,7 +104,7 @@ private fun saveToCache(context: Context, bitmap: Bitmap, filename: String) {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
         fileOutputStream.close()
     } catch (e: IOException) {
-        Log.e("ImageLoading", "Error saving image to cache: $e")
+        Log.e("ImageLoading", "Error saving image to cache: ${e.message}")
     }
 }
 
