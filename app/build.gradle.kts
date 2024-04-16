@@ -105,6 +105,26 @@ dependencies {
     implementation(libs.sdp)
     implementation(libs.ssp)
 
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.adapter.rxjava2)
+    implementation(libs.logging.interceptor)
+
+    //Glide for Display images
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
+    implementation(libs.glide.okhttp.integration) {
+        exclude(group = "glide-parent")
+    }
+
+    // Room Database
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.room.paging)
+    implementation(libs.room.rxjava2)
+
     // Dagger Hilt Dependency For Dependency Injection
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)

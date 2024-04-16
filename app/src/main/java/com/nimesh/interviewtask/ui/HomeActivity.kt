@@ -9,14 +9,21 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.nimesh.interviewtask.R
 import com.nimesh.interviewtask.Utils.permissionDialog
 import com.nimesh.interviewtask.databinding.ActivityHomeBinding
+import com.nimesh.interviewtask.viewmodel.MediaCoverageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
@@ -29,15 +36,30 @@ class HomeActivity : AppCompatActivity() {
     private val permissionsForApi33 = arrayOf(
         readVideo, readImages
     )
+    private lateinit var adapter: MediaCoverageAdapter
+    private val viewModel: MediaCoverageViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        adapter = MediaCoverageAdapter(this)
+        binding.mediaCoverageRecyclerView.layoutManager = GridLayoutManager(this,3)
+        binding.mediaCoverageRecyclerView.adapter = adapter
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         requestAppPermissions()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        lifecycleScope.launch {
+            viewModel.getMediaCoverages().collectLatest { pagingData ->
+                adapter.submitData(pagingData)
+            }
+        }
     }
 
     private fun requestAppPermissions() {

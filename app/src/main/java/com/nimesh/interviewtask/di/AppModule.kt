@@ -3,7 +3,6 @@ package com.nimesh.interviewtask.di
 import android.app.Application
 import android.content.Context
 import android.os.StrictMode
-import androidx.work.WorkManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +29,6 @@ class AppModule {
         StrictMode.VmPolicy.Builder()
             .detectFileUriExposure()
             .build()
+
 
 }
