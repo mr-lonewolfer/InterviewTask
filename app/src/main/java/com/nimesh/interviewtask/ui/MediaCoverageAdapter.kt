@@ -1,16 +1,12 @@
 package com.nimesh.interviewtask.ui
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.nimesh.interviewtask.R
-import com.nimesh.interviewtask.Utils.getImage
-import com.nimesh.interviewtask.Utils.isValidImagePath
+import com.nimesh.interviewtask.Utils.loadImageFromUrl
 import com.nimesh.interviewtask.data.model.remote.MediaCoveragesItem
 import com.nimesh.interviewtask.databinding.ListItemMediaCoverageBinding
 import javax.inject.Inject
@@ -46,20 +42,7 @@ class MediaCoverageAdapter @Inject constructor(private val context: Context) :
         fun bind(mediaCoverage: MediaCoveragesItem) {
             binding.apply {
                 val imageUrl = mediaCoverage.coverageURL
-                isValidImagePath(imageUrl) { isValid ->
-                    if (isValid) {
-                        getImage(context, imageUrl) { bitmap ->
-                            Log.e(
-                                "neem",
-                                "bind: bindingAdapterPosition :$bindingAdapterPosition && absoluteAdapterPosition:$absoluteAdapterPosition ",
-                            )
-                            if (bindingAdapterPosition == absoluteAdapterPosition) {
-                                binding.ivMedia.setImageBitmap(bitmap)
-                            } 
-                        }
-                    }
-
-                }
+                ivMedia.loadImageFromUrl(context, imageUrl)
             }
         }
     }

@@ -1,3 +1,4 @@
+/*
 package com.nimesh.interviewtask.Utils
 
 import android.content.Context
@@ -14,10 +15,12 @@ import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 
+*/
 /**
  * Created by Nimesh Patel on 4/16/2024.
  * Purpose:
- */
+ *//*
+
 fun retrieveFromRemote(context: Context, imageUrl: String, callback: (Bitmap?) -> Unit) {
     GlobalScope.launch(Dispatchers.IO) {
         try {
@@ -118,4 +121,4 @@ fun isValidImagePath(urlString: String, callback: (Boolean) -> Unit) {
             callback(false)
         }
     }
-}
+}*/
