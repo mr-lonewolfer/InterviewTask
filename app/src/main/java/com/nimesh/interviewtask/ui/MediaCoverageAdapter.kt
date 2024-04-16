@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nimesh.interviewtask.Utils.loadImageFromUrl
 import com.nimesh.interviewtask.data.model.remote.MediaCoveragesItem
 import com.nimesh.interviewtask.databinding.ListItemMediaCoverageBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -42,7 +45,9 @@ class MediaCoverageAdapter @Inject constructor(private val context: Context) :
         fun bind(mediaCoverage: MediaCoveragesItem) {
             binding.apply {
                 val imageUrl = mediaCoverage.coverageURL
-                ivMedia.loadImageFromUrl(context, imageUrl)
+                GlobalScope.launch(Dispatchers.IO) {
+                    binding.ivMedia.loadImageFromUrl(context, imageUrl)
+                }
             }
         }
     }
