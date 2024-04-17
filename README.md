@@ -48,3 +48,8 @@ The app primarily consists of the following components:
 - **MediaCoverageViewModel**: Manages the UI-related data and interactions, including permission status and media coverages data.
 - **MediaCoverageAdapter**: Adapts the media coverages data for display in a RecyclerView.
 - **SquareGridRecyclerView**: A custom RecyclerView implementation for displaying items in a grid layout with square aspect ratio.
+
+[Watch the App UI video](https://github.com/mr-lonewolfer/InterviewTask/blob/master/doc/AppUI.mp4)
+
+[Download APK](https://github.com/mr-lonewolfer/InterviewTask/raw/master/doc/interviewTaskByNimesh_Debug.apk)
+
