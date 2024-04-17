@@ -30,19 +30,17 @@ For a detailed list of dependencies and versions, refer to the `build.gradle` fi
 
 ## Features
 
-- **Image Grid**: Displays media coverages in a 3-column square image grid with center cropping.
-- **Asynchronous Image Loading**: Implements asynchronous image loading using provided URLs.
-- **Pagination**: Allows users to scroll through at least 100 images with smooth pagination.
-- **Caching Mechanism**: Implements caching of images retrieved from the API in both memory and disk cache for efficient retrieval.
-- **Error Handling**: Gracefully handles network errors and image loading failures, providing informative error messages or placeholders for failed image loads.
+- **Media Coverage Display**: Fetches media coverages from a remote service and displays them in a paginated list.
+- **Image Loading and Caching**: Implements image loading and caching mechanism using a combination of LruCache and memory cache. It provides informative error messages or placeholders for failed image loads.
+- **Error Handling**: Provides error handling for failed image loads, ensuring a smooth user experience.
+- **Dependency Injection**: Utilizes Dagger Hilt for dependency injection to manage dependencies efficiently.
+- **No Third-Party Libraries**: Implements image loading and caching mechanism without relying on any third-party libraries.
 
-## Implementation Details
-
-- **Networking**: Utilizes Retrofit for network operations to fetch media coverages from the remote service.
-- **Dependency Injection**: Implements Dagger Hilt for dependency injection to manage dependencies efficiently.
-- **Pagination**: Implements Paging 3 library for pagination of media coverages, ensuring smooth scrolling and efficient memory usage.
-- **Image Loading**: Implements asynchronous image loading using provided URLs, with caching mechanism to store images locally for efficient retrieval.
-- **Error Handling**: Handles network errors and image loading failures gracefully, ensuring a seamless user experience even in adverse conditions.
+## Image Loading and Caching
+The application follows the following approach for image loading and caching:
+1. **Check Cache Memory**: It first checks if the image is available in the cache memory. If found, it directly loads the image from the cache.
+2. **Local Path**: If the image is not available in the cache memory, it checks if a local path for the image is available. If found, it loads the image from the local path.
+3. **URL**: If the image is not available in the cache memory or through a local path, it fetches the image from the provided URL.
 
 ## Usage
 The app primarily consists of the following components:
