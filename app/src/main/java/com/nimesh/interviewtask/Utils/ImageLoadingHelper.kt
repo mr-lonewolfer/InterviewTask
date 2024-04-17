@@ -93,7 +93,7 @@ fun ImageView.loadImageFromUrl(context: Context, imageUrl: String) {
             }
         } else {
             // Invalid image URL, load placeholder
-            setImageResource(R.drawable.img_place_holder)
+            setImageResource(R.drawable.ic_no_image)
         }
     }
 }
