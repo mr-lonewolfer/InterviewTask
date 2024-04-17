@@ -49,7 +49,9 @@ The app primarily consists of the following components:
 - **MediaCoverageAdapter**: Adapts the media coverages data for display in a RecyclerView.
 - **SquareGridRecyclerView**: A custom RecyclerView implementation for displaying items in a grid layout with square aspect ratio.
 
-![App UI GIF](https://github.com/mr-lonewolfer/InterviewTask/raw/master/doc/AppUI.gif)
+<p align="center" width="292" height="648">
+  <img src="https://github.com/mr-lonewolfer/InterviewTask/raw/master/doc/AppUI.gif" alt="App UI GIF" width="292" height="648">
+</p>
 
 
 [Watch the App UI video](https://github.com/mr-lonewolfer/InterviewTask/blob/master/doc/AppUI.mp4)
