@@ -1,7 +1,6 @@
 package com.nimesh.interviewtask.paging
 
 import android.content.Context
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.nimesh.interviewtask.data.model.remote.MediaCoveragesItem
@@ -9,7 +8,8 @@ import com.nimesh.interviewtask.data.network.MediaCoverageServices
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: provides logic for loading data asynchronously and handling pagination,
+ * and efficiently managing large datasets
  */
 class MediaCoveragePagingSource(
     private val context: Context,
@@ -34,6 +34,4 @@ class MediaCoveragePagingSource(
             LoadResult.Error(e)
         }
     }
-
-
 }

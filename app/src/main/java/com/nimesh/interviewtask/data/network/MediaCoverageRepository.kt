@@ -11,7 +11,8 @@ import javax.inject.Inject
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: class provides a way to retrieve media coverages asynchronously using
+ * pagination, encapsulating the logic for fetching data from a remote service
  */
 class MediaCoverageRepository @Inject constructor(
     private val context: Context,
@@ -23,7 +24,7 @@ class MediaCoverageRepository @Inject constructor(
                 pageSize = PAGE_SIZE,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { MediaCoveragePagingSource(context,mediaCoverageServices) }
+            pagingSourceFactory = { MediaCoveragePagingSource(context, mediaCoverageServices) }
         ).flow
     }
 

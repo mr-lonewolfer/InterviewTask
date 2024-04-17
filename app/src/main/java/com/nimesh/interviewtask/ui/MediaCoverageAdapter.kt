@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: Populating the UI with media coverage items fetched via paging.
  */
 
 class MediaCoverageAdapter @Inject constructor(private val context: Context) :

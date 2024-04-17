@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: fetching media coverages asynchronously from an API.
  */
 interface MediaCoverageServices {
     @GET(GlobalVariables.API_MEDIA_COVERAGES)

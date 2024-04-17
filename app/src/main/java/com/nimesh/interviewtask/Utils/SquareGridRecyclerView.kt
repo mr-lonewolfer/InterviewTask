@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: Extends RecyclerView to create a grid layout where each item's width matches its height.
+ * This ensures a square aspect ratio for each item, facilitating a uniform and
+ * visually appealing grid display in UI layouts.
  */
 class SquareGridRecyclerView : RecyclerView {
 

@@ -96,11 +96,6 @@ dependencies {
     implementation(libs.androidx.palette.ktx)
     implementation(libs.androidx.drawerlayout)
 
-    // Junit for Testing
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
     //Use to maintain resolution for different screen
     implementation(libs.sdp)
     implementation(libs.ssp)
@@ -112,19 +107,8 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.retrofit2.kotlin.coroutines.adapter)
 
-    //Glide for Display images
-    implementation(libs.glide)
-    kapt(libs.glide.compiler)
-    implementation(libs.glide.okhttp.integration) {
-        exclude(group = "glide-parent")
-    }
-
-
-
     // Dagger Hilt Dependency For Dependency Injection
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-    implementation(libs.androidx.hilt.work)
     kapt(libs.androidx.hilt.compiler)
-    implementation(libs.androidx.hilt.navigation.fragment)
 }

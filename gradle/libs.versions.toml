@@ -35,7 +35,6 @@ swiperefreshlayout = "1.1.0"
 databindingCompiler = "8.3.2"
 hilt = "2.51"
 hiltAndroidXCompiler = "1.2.0"
-hiltAndroidXWork = "1.2.0"
 hiltAndroidCompiler = "2.51"
 hiltAndroid = "2.51"
 hiltAndroidGradlePlugin = "2.51"
@@ -44,14 +43,10 @@ ssp = "1.1.0"
 paletteKtx = "1.0.0"
 workRuntime = "2.9.0"
 drawerlayout = "1.2.0"
-glide = "4.15.1"
-glideCompiler = "4.15.1"
-glideOkhttpIntegration = "4.15.1"
 
 [libraries]
 
 adapter-rxjava2 = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "retrofit" }
-androidx-hilt-navigation-fragment = { module = "androidx.hilt:hilt-navigation-fragment", version.ref = "hiltAndroidXCompiler" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntime" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
@@ -76,7 +71,6 @@ androidx-lifecycle-extensions = { module = "androidx.lifecycle:lifecycle-extensi
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
 androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltAndroidXCompiler" }
-androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltAndroidXWork" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltAndroidGradlePlugin" }
@@ -94,11 +88,6 @@ sdp = { group = "com.intuit.sdp", name = "sdp-android", version.ref = "sdp" }
 ssp = { group = "com.intuit.ssp", name = "ssp-android", version.ref = "ssp" }
 androidx-palette-ktx = { group = "androidx.palette", name = "palette-ktx", version.ref = "paletteKtx" }
 androidx-drawerlayout = { group = "androidx.drawerlayout", name = "drawerlayout", version.ref = "drawerlayout" }
-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
-glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glideCompiler" }
-glide-okhttp-integration = { group = "com.github.bumptech.glide", name = "okhttp3-integration", version.ref = "glideOkhttpIntegration" }
-
-
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

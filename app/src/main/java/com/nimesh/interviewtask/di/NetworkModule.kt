@@ -20,7 +20,8 @@ import javax.inject.Singleton
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: Providing dependencies related to network operations,
+ * such as OkHttpClient, Retrofit, and MediaCoverageServices.
  */
 @Module
 @InstallIn(SingletonComponent::class)

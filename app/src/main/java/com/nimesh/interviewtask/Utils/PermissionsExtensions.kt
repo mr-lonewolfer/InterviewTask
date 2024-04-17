@@ -5,7 +5,7 @@ import androidx.appcompat.app.AlertDialog
 
 /**
  * Created by Nimesh Patel on 4/16/2024.
- * Purpose:
+ * Purpose: Creates and displays a customizable dialog for permission requests or user confirmations in the app.
  */
 fun permissionDialog(
     context: Context,
