@@ -39,6 +39,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs += "-Xuse-experimental=kotlin.Experimental"
     }
     buildFeatures {
         dataBinding = true
@@ -95,6 +96,12 @@ dependencies {
     implementation(libs.androidx.navigation.feature.fragment)
     implementation(libs.androidx.palette.ktx)
     implementation(libs.androidx.drawerlayout)
+
+    // Junit for Testing
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
 
     //Use to maintain resolution for different screen
     implementation(libs.sdp)
