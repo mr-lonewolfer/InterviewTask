@@ -1,4 +1,4 @@
-# Interview Task
+# MVVM Hilt
 
 ## Overview
 This project is an Android application developed for an interview task. It fetches media coverages from a remote service and displays them in a paginated list. The app utilizes modern Android development practices and libraries such as Retrofit for network operations, Dagger Hilt for dependency injection, and Paging 3 for pagination.
